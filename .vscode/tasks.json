@@ -1,0 +1,40 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CompileWar",
+            "type": "shell",
+            "command": "mvn package",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        // {
+        //     "label": "Run WAR",
+        //     "command": "adashen.vscode-tomcat:tomcat.war.run",
+        //     "args": ["${workspaceFolder}/target/myapp.war"],
+        //     "dependsOn": [
+        //         "CompileWar"
+        //     ],
+        //     "problemMatcher": [],
+        //     "group": {
+        //         "kind": "build",
+        //         "isDefault": true
+        //     }
+        // }
+    ],
+    "inputs": [
+        {
+            "id": "runWar",
+            "type": "command",
+            "command": "tomcat.war.run"
+            ,"args": { //DOESNT WORK =/
+              "uri" : {"fsPath" : "${workspaceFolder}/target/myapp.war"}
+            }
+        }
+    ]
+}
