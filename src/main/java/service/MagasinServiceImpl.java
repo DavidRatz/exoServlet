@@ -11,14 +11,14 @@ public class MagasinServiceImpl extends GenericServiceImpl<Magasin> {
     private final List<Magasin> list = new ArrayList<>();
     private static MagasinServiceImpl _instance;
 
-    @Override
-    public MagasinServiceImpl getInstance() {
-        // if(_instance == null){
-        //     _instance = new ProduitServiceImpl();
-        // }
-        // return _instance;
-        return _instance == null ? _instance = new MagasinServiceImpl() : _instance;
-    }
+    // @Override
+    // public MagasinServiceImpl getInstance() {
+    //     // if(_instance == null){
+    //     //     _instance = new ProduitServiceImpl();
+    //     // }
+    //     // return _instance;
+    //     return _instance == null ? _instance = new MagasinServiceImpl() : _instance;
+    // }
 
     private MagasinServiceImpl() {
         list.add(new Magasin(1, "Carrefour", "rue du marché", "Liège",4000,"25",300.0f,null));
