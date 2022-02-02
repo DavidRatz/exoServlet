@@ -10,6 +10,6 @@
     <h1>Bienvenue</h1>
     
     <a href="<%= request.getContextPath() %>/produit">vers les produits</a><br>
-    <a href="<%= request.getContextPath() %>/jsp/magasins.jsp">vers les magasins</a>
+    <a href="<%= request.getContextPath() %>/magasin">vers les magasins</a>
 </body>
 </html>

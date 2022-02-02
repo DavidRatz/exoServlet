@@ -4,13 +4,13 @@
     <h2>Les tags d'expression</h2>
     <p>Valeur de l'expression 1+1 = <%= 1+1 %></p>
     <h2>Les tags de scriplet</h2>
-    <% for(int i = 0;i<5;i++){ %>
+    <% for(int i = 0;i<5;i++){ %> <%--  in servlet class and in service --%>
            <p>salut - <%= a+i %></p>
            
     <% } %>
     <% salut(); %>
     <h2>Les tags de déclaration</h2>
-    <%! 
+    <%! // in servlet class but out of service
         int a = 5;
         Produit p = new Produit(1,"nom_prod","marque_prod",5);
         private void salut(){

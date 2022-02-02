@@ -6,13 +6,23 @@
         {
             "label": "CompileWar",
             "type": "shell",
-            "command": "mvn package",
+            "command": "mvn clean package tomcat7:redeploy",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
                 "isDefault": true
             }
         },
+        // {
+        //     "label": "CompileWar",
+        //     "type": "shell",
+        //     "command": "mvn clean package",
+        //     "problemMatcher": [],
+        //     "group": {
+        //         "kind": "build",
+        //         "isDefault": true
+        //     }
+        // },
         // {
         //     "label": "Run WAR",
         //     "command": "adashen.vscode-tomcat:tomcat.war.run",

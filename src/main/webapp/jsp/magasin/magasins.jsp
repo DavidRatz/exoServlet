@@ -1,17 +1,22 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magasins</title>
-</head>
-<body>
-    <h1>Liste des magasins</h1>
-    <ul>
-        <li>Mag 1</li>
-        <li>Mag 1</li>
-        <li>Mag 1</li>
-        <li>Mag 1</li>
-    </ul>
-</body>
-</html>
+<%@ include file="../../WEB-INF/jsp/head.jsp" %>
+
+<%@ page import="model.Magasin" %>
+<%@ page import="java.util.List" %>
+
+<h1>Liste des magasins</h1>
+
+<a href="<%= request.getContextPath()%>/magasin/add">Ajouter un magasin</a>
+
+<% List<Magasin> list = (List<Magasin>) request.getAttribute("listMagasin"); 
+    for(Magasin m: list){
+%>
+ 
+  <p><%= m.getNom() %></p> 
+
+  <a href="<%= request.getContextPath() %>/produitmagasin/add?nom=<%= m.getNom() %>">Ajouter un produit</a>
+
+<%}%>
+
+<a href="<%= request.getContextPath()%>">Retour</a>
+
+<%@ include file="../../WEB-INF/jsp/foot.jsp" %>

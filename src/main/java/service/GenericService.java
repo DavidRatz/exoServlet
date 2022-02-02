@@ -9,8 +9,8 @@ public interface GenericService<T> {
     T getBy(Predicate<T> predicate);
     T get(int index);
 
-    boolean insert(T genericModel);
-    void update(int id, T genericModel);
-    T delete(int id);
+    boolean insert(T genericModel,Predicate<T> predicate);
+    void update(int id, T genericModel,Predicate<T> predicate);
+    T delete(int id,Predicate<T> predicate);
     
 }

@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 public class Magasin {
     private int id;
     private String nom;
@@ -8,10 +10,10 @@ public class Magasin {
     private int codePostal;
     private String numero;
     private float superficie;
-    private int produitDisponibles;
+    private List<Produit> produitDisponibles;
     public Magasin() {
     }
-    public Magasin(int id, String nom, String rue, String ville, int codePostal, String numero, float superficie, int produitDisponibles) {
+    public Magasin(int id, String nom, String rue, String ville, int codePostal, String numero, float superficie, List<Produit> produitDisponibles) {
         this.id = id;
         this.nom = nom;
         this.rue = rue;
@@ -63,10 +65,10 @@ public class Magasin {
     public void setSuperficie(float superficie) {
         this.superficie = superficie;
     }
-    public int getProduitDisponibles() {
+    public List<Produit> getProduitDisponibles() {
         return produitDisponibles;
     }
-    public void setProduitDisponibles(int produitDisponibles) {
+    public void setProduitDisponibles(List<Produit> produitDisponibles) {
         this.produitDisponibles = produitDisponibles;
     }
     @Override
