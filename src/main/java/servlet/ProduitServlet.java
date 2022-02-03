@@ -13,8 +13,8 @@ import service.*;
 @WebServlet(name="ProduitServlet", value = "/produit")
 public class ProduitServlet extends HttpServlet {
 
-    //ProduitService ps = ProduitServiceImpl.getInstance();
-    GenericService<Produit> ps = (GenericService<Produit>) GenericServiceImpl.getInstance();
+    private final ProduitService ps = ProduitServiceImpl.getInstance();
+    //GenericService<Produit> ps = (GenericService<Produit>) GenericServiceImpl.getInstance();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // String path = "http://" + req.getServerName() + ":" + req.getServerPort() + req.getContextPath();

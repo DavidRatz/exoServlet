@@ -9,8 +9,8 @@ import jakarta.servlet.http.*;
 import model.*;
 import service.*;
 
-@WebServlet("/produitmagasin/add")
-public class ProduitMagasinAddServlet extends HttpServlet {
+@WebServlet("/produitmagasin/delete")
+public class ProduitMagasinDeleteServlet extends HttpServlet {
     //GenericService<Produit> gs = (GenericService<Produit>) GenericServiceImpl.getInstance();
 
     ProduitService service = ProduitServiceImpl.getInstance();
@@ -22,7 +22,7 @@ public class ProduitMagasinAddServlet extends HttpServlet {
         List<Produit> listProduit = service.getAll();
         req.setAttribute("nomMagasin", nomMagasin);
         req.setAttribute("listProduit", listProduit);
-        req.getRequestDispatcher("/jsp/produitmagasin/produitMagasinAdd.jsp").forward(req,resp);
+        req.getRequestDispatcher("/jsp/produitmagasin/produitMagasinDelete.jsp").forward(req,resp);
     }
     
     @Override
@@ -33,17 +33,14 @@ public class ProduitMagasinAddServlet extends HttpServlet {
             int id = Integer.parseInt(req.getParameter("id"));
             String nom = req.getParameter("nomMagasin");
             
-            Magasin magasin = serviceMag.getByName(nom);
             Produit produit = service.getOne(id);
-            List <Produit> listProduit = magasin.getProduitDisponibles();
-            listProduit.add(produit);
             
-            magasin.setProduitDisponibles(listProduit);
+            serviceMag.delete(nom,produit);
             
             resp.sendRedirect(req.getContextPath()+"/magasin");
         }catch (NumberFormatException ex){
                 resp.setStatus(400);
-                resp.sendRedirect(req.getContextPath()+"/produitmagasin/add");
+                resp.sendRedirect(req.getContextPath()+"/produitmagasin/delete");
         }
     }
 

@@ -7,10 +7,13 @@ import jakarta.servlet.http.*;
 import model.Magasin;
 import service.GenericService;
 import service.GenericServiceImpl;
+import service.MagasinService;
+import service.MagasinServiceImpl;
 
 @WebServlet("/magasin/add")
 public class MagasinAddServlet extends HttpServlet {
-    GenericService<Magasin> gs = (GenericService<Magasin>) GenericServiceImpl.getInstance();
+    //GenericService<Magasin> gs = (GenericService<Magasin>) GenericServiceImpl.getInstance();
+    private final MagasinService gs = MagasinServiceImpl.getInstance();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/jsp/magasin/magasinAdd.jsp").forward(req,resp);
@@ -38,7 +41,8 @@ public class MagasinAddServlet extends HttpServlet {
             magasin.setSuperficie(superficie);
             magasin.setProduitDisponibles(null);
 
-            if(gs.insert(magasin, m -> m.getId()==id)){
+            //if(gs.insert(magasin, m -> m.getId()==id)){
+            if(gs.insert(magasin)){
                 resp.sendRedirect(req.getContextPath() + "/magasin");
             }
             else{
